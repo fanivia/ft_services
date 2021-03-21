@@ -10,7 +10,7 @@ spec:
   # по которому под связывается с внешним миром
   # через команду loadBalancerIP: <IP адрес из пула адресов
   # который выдает тебе metallb>
-  loadBalancerIP: 192.168.1.245
+  loadBalancerIP: 192.168.1.150
   # чтобы связать Service и Deployment тебе необходимо
   # через selector свяать его по labels, иначе связки
   # не произойдет. Синтаксический анализатор yaml файла
@@ -26,14 +26,14 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  # name: nginx-deployment
-  name: nginx
+  name: nginx-deployment
+  #name: nginx
   labels:
     app: nginx
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
+  #strategy:
+   # type: Recreate
   selector:
     matchLabels:
       app: nginx
@@ -48,4 +48,4 @@ spec:
           imagePullPolicy: Never
           ports:
           - containerPort: 80
-            name: http
+            #name: http

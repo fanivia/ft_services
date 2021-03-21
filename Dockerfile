@@ -29,7 +29,7 @@ RUN     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -subj "/C=RF/ST=Moscow/L=Moscow/O=school21/OU=fanivia/CN=my_domain"
 COPY    ./srcs/init.sh /tmp/
 COPY    ./srcs/supervisord.conf /etc/
-RUN     chmod +x /tmp/init.sh
+#RUN     chmod +x /tmp/init.sh
 
 EXPOSE  80 443
 # CMD ["/tmp/init.sh"]
